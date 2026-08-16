@@ -1,8 +1,5 @@
 # Allow build scripts to be referenced without being copied into the final image
 FROM scratch AS ctx
-
-ARG KERNEL_NAME_ARG
-
 COPY build_files /
 COPY system_files /system_files
 

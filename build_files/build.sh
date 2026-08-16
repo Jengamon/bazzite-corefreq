@@ -5,7 +5,7 @@ set -ouex pipefail
 # Copy the contents of system_files/ of the git repo to /
 cp -avf "/ctx/system_files"/. /
 
-KERNEL="$(rpm -q "${KERNEL_NAME}" --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
+KERNEL="7.0.9-ogc3.2.fc44.x86_64"
 
 ### Install packages
 
