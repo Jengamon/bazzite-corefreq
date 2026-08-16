@@ -22,12 +22,12 @@ cp -avf "/ctx/system_files"/. /
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
 
-# dnf5 install -y kernel-devel
+dnf5 install -y kernel-devel
 dnf5 -y copr enable sunnyyang/corefreq
 dnf5 -y install corefreq
 dnf5 -y copr disable sunnyyang/corefreq
-akmods --rebuild --force --kernels $(uname -r)
-# dnf5 remove -y kernel-devel
+akmods --rebuild --force --kernels 7.0.9-ogc3.2.fc44.x86_64
+dnf5 remove -y kernel-devel
 
 #### Example for enabling a System Unit File
 
