@@ -28,9 +28,9 @@ dnf5 install -y kernel-devel
 dnf5 -y copr enable sunnyyang/corefreq
 dnf5 -y install corefreq
 dnf5 -y copr disable sunnyyang/corefreq
-akmods --force --kernels "${KERNEL}" --kmod corefreqk
-modinfo /usr/lib/modules/"${KERNEL}"/extra/corefreqk/corefreqk.ko.xz > /dev/null \
-|| (find /var/cache/akmods/corefreqk/ -name \*.log -print -exec cat {} \; && exit 1)
+akmods --force --kernels "${KERNEL}" --kmod corefreq
+modinfo /usr/lib/modules/"${KERNEL}"/extra/corefreq/corefreq.ko.xz > /dev/null \
+|| (find /var/cache/akmods/corefreq/ -name \*.log -print -exec cat {} \; && exit 1)
 
 #### Example for enabling a System Unit File
 
