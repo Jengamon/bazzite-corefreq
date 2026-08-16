@@ -29,6 +29,7 @@ dnf5 -y copr enable sunnyyang/corefreq
 dnf5 -y install corefreq
 dnf5 -y copr disable sunnyyang/corefreq
 akmods --force --kernels "${KERNEL}" --kmod corefreq
+cat /var/cache/akmods/corefreq/2.1.2-1-for-7.0.9-ogc3.2.fc44.x86_64.failed.log
 modinfo /usr/lib/modules/"${KERNEL}"/extra/corefreq/corefreq.ko.xz > /dev/null \
 || (find /var/cache/akmods/corefreq/ -name \*.log -print -exec cat {} \; && exit 1)
 
