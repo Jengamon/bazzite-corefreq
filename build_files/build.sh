@@ -26,8 +26,7 @@ dnf5 install -y kernel-devel
 dnf5 -y copr enable sunnyyang/corefreq
 dnf5 -y install corefreq
 dnf5 -y copr disable sunnyyang/corefreq
-akmods --rebuild --force --kernels 7.0.9-ogc3.2.fc44.x86_64
-dnf5 remove -y kernel-devel
+akmods --rebuild --kernels 7.0.9-ogc3.2.fc44.x86_64
 
 #### Example for enabling a System Unit File
 
