@@ -5,6 +5,8 @@ set -ouex pipefail
 # Copy the contents of system_files/ of the git repo to /
 cp -avf "/ctx/system_files"/. /
 
+KERNEL="$(rpm -q "${KERNEL_NAME}" --queryformat '%{VERSION}-%{RELEASE}.%{ARCH}')"
+
 ### Install packages
 
 # Packages can be installed from any enabled yum repo on the image.
@@ -26,7 +28,9 @@ dnf5 install -y kernel-devel
 dnf5 -y copr enable sunnyyang/corefreq
 dnf5 -y install corefreq
 dnf5 -y copr disable sunnyyang/corefreq
-akmods --rebuild --kernels 7.0.9-ogc3.2.fc44.x86_64
+akmods --force --kernels "${KERNEL}" --kmod corefreqk
+modinfo /usr/lib/modules/"${KERNEL}"/extra/corefreqk/corefreqk.ko.xz > /dev/null \
+|| (find /var/cache/akmods/corefreqk/ -name \*.log -print -exec cat {} \; && exit 1)
 
 #### Example for enabling a System Unit File
 
