@@ -25,7 +25,7 @@ cp -avf "/ctx/system_files"/. /
 dnf5 -y copr enable sunnyyang/corefreq
 dnf5 -y install corefreq
 dnf5 -y copr disable sunnyyang/corefreq
-akmods --rebuild
+akmods --rebuild --force
 
 #### Example for enabling a System Unit File
 
